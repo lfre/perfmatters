@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "app": "./src",
+        }
+      }
+    ]
+  ]
+}

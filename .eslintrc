@@ -1,0 +1,27 @@
+{
+  "extends": ["airbnb-base"],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "React": true,
+    "PropTypes": true
+  },
+  "root": true,
+  "rules": {
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-param-reassign": "off"
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  }
+}
