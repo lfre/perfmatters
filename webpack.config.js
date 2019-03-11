@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { ProvidePlugin } = require('webpack');
 const SlidePlugin = require('./plugins/slide');
 const { description } = require('./package.json');
 
@@ -51,7 +52,15 @@ module.exports = (env = {}, options) => {
         name: true,
       },
     },
+    resolve: {
+      alias: {
+        reveal: 'reveal.js',
+      },
+    },
     plugins: [
+      new ProvidePlugin({
+        Reveal: 'reveal/js/reveal',
+      }),
       new MiniCssExtractPlugin(),
       new SlidePlugin(HtmlWebpackPlugin),
       new HtmlWebpackPlugin({

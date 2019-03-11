@@ -7,7 +7,7 @@ class SlidePlugin {
       HtmlWebpackPlugin.getHooks(compilation).alterAssetTagGroups.tapAsync(
         'SlidePlugin',
         (data, callback) => {
-          data.plugin.options.content = '<section>foo</section><section>bar</section>';
+          data.plugin.options.content = '<section>foo</section><section>bar</section><section>baz</section>';
           callback(null, data);
         },
       );
