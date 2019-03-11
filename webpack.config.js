@@ -47,6 +47,9 @@ module.exports = (env = {}, options) => {
       port: env.PORT || 3000,
     },
     optimization: {
+      runtimeChunk: {
+        name: entrypoint => `runtime~${entrypoint.name}`,
+      },
       splitChunks: {
         chunks: 'all',
         name: true,

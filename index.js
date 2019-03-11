@@ -15,15 +15,17 @@ const noop = () => ({});
 
 const addSlide = (module, number) => {
   if (!slides[number]) {
-    const show = module.default || noop;
-    slides[number] = { show };
+    const show = module.default;
+    slides[number] = show ? { show } : {};
   }
   return slides[number];
 };
 
 const addHook = (slide, forward) => {
-  const hide = slide.show(forward);
-  slide.hide = typeof hide === 'function' ? hide : noop;
+  if (typeof slide.show === 'function') {
+    const hide = slide.show(forward);
+    slide.hide = typeof hide === 'function' ? hide : noop;
+  }
 };
 
 const loadSlide = number => new Promise((resolve, reject) => {
@@ -62,7 +64,7 @@ Reveal.addEventListener('ready', (event) => {
   if (urlParams.has('preload')) {
     const slidesToLoad = [];
     for (let i = 0; i < allSlides; i += 1) {
-      slidesToLoad.push(import(`./slides/${i}`));
+      slidesToLoad.push(import(`./slides/${i}`).catch(noop));
     }
     Promise.all(slidesToLoad).then((loadedSlides) => {
       loadedSlides.forEach(addSlide);
