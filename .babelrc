@@ -5,7 +5,7 @@
       "module-resolver",
       {
         "alias": {
-          "app": "./src",
+          "app": "./",
         }
       }
     ]

@@ -64,7 +64,7 @@ Reveal.addEventListener('ready', (event) => {
   if (urlParams.has('preload')) {
     const slidesToLoad = [];
     for (let i = 0; i < allSlides; i += 1) {
-      slidesToLoad.push(import(`./slides/${i}`).catch(noop));
+      slidesToLoad.push(import(`./slides/${i}/`).catch(noop));
     }
     Promise.all(slidesToLoad).then((loadedSlides) => {
       loadedSlides.forEach(addSlide);

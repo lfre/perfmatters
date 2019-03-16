@@ -1,6 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { ProvidePlugin } = require('webpack');
+const {
+  ProvidePlugin,
+  HashedModuleIdsPlugin,
+  NamedChunksPlugin,
+} = require('webpack');
 const SlidePlugin = require('./plugins/slide');
 const { description } = require('./package.json');
 
@@ -61,15 +65,24 @@ module.exports = (env = {}, options) => {
       },
     },
     plugins: [
+      new NamedChunksPlugin(),
+      new HashedModuleIdsPlugin({
+        hashFunction: 'sha256',
+        hashDigest: 'hex',
+        hashDigestLength: 20,
+      }),
       new ProvidePlugin({
         Reveal: 'reveal/js/reveal',
       }),
       new MiniCssExtractPlugin(),
-      new SlidePlugin(HtmlWebpackPlugin),
+      new SlidePlugin(),
       new HtmlWebpackPlugin({
         title: description,
         template: 'index.html',
       }),
     ],
+    watchOptions: {
+      ignored: /slides\/\d\/.*\.html/,
+    },
   };
 };
