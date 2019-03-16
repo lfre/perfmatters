@@ -5,13 +5,14 @@ const {
   HashedModuleIdsPlugin,
   NamedChunksPlugin,
 } = require('webpack');
-const SlidePlugin = require('./plugins/slide');
 const { description } = require('./package.json');
+require('./loaders/slide-loader');
 
 module.exports = (env = {}, options) => {
   const defaultMode = 'development';
   const mode = options.mode || defaultMode;
   const isDev = mode === defaultMode;
+  const template = 'index.html';
   return {
     entry: './index.js',
     mode,
@@ -43,6 +44,19 @@ module.exports = (env = {}, options) => {
             },
           ],
         },
+        {
+          test: /index\.html$/,
+          use: [
+            {
+              loader: 'slide-loader',
+              options: {
+                force: true,
+                isDev,
+                template,
+              },
+            },
+          ],
+        },
       ],
     },
     devServer: {
@@ -64,21 +78,19 @@ module.exports = (env = {}, options) => {
         reveal: 'reveal.js',
       },
     },
+    resolveLoader: {
+      modules: ['node_modules', './loaders'],
+    },
     plugins: [
+      new HashedModuleIdsPlugin(),
       new NamedChunksPlugin(),
-      new HashedModuleIdsPlugin({
-        hashFunction: 'sha256',
-        hashDigest: 'hex',
-        hashDigestLength: 20,
-      }),
       new ProvidePlugin({
         Reveal: 'reveal/js/reveal',
       }),
       new MiniCssExtractPlugin(),
-      new SlidePlugin(),
       new HtmlWebpackPlugin({
         title: description,
-        template: 'index.html',
+        template,
       }),
     ],
     watchOptions: {
