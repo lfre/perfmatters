@@ -45,8 +45,10 @@ const startWatching = (template) => {
 module.exports = function loader(content) {
   const options = this.query !== '' ? loaderUtils.getOptions(this) : {};
   const defaultLoader = HtmlWebpackLoader.bind(this);
-  if (options.isDev && !watching) {
+  if (content !== defaultContent) {
     defaultContent = content;
+  }
+  if (options.isDev && !watching) {
     startWatching(options.template);
   }
   if (!result && output.length) result = output.join();

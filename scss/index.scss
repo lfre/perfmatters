@@ -1,0 +1,10 @@
+@import '~reveal/css/reveal';
+@import 'particles.scss';
+@import 'variables.scss';
+
+// SLIDES
+@import '../slides/0/index.scss';
+
+.reveal .progress span {
+  color: $headline;
+}

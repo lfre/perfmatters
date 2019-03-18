@@ -1,0 +1,50 @@
+section:nth-child(1) {
+  .main-title {
+    font-family: 'Inter';
+    font-weight: 900;
+    color: $headline;
+    font-size: 7rem;
+    text-transform: uppercase;
+    margin-left: -10%;
+    width: 120%;
+    margin-top: -2%;
+    margin-bottom: 2rem;
+
+    h1 {
+      display: inline-block;
+
+      span {
+        font-family: 'Times New Roman';
+        font-size: 6rem;
+        margin-left: -0.5rem;
+      }
+    }
+  }
+
+  .fast{
+    svg {
+      vertical-align: middle;
+      text-transform: uppercase;
+
+      .img-layer {
+        fill: url(#p-img);
+      }
+
+      .gradient-layer {
+        fill: url(#gr-overlay);
+        stroke: rgb(43, 37, 59);
+        stroke-width: 1px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-opacity: 0.5;
+      }
+    }
+  }
+
+  .subtitle {
+    font-family: 'Inter';
+    font-size: 3rem;
+    font-weight: 100;
+    color: $accent;
+  }
+}

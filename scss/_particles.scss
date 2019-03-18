@@ -1,0 +1,71 @@
+$spacing: 2560px;
+$time01: 60s;
+$time02: 120s;
+$time03: 180s;
+$time04: 400s;
+
+@function particles($max) {
+  $val: 0 0 white;
+  @for $i from 1 through $max {
+    $val: #{$val}, random($spacing)+px random($spacing)+px white;
+  }
+  @return $val;
+}
+@mixin particles($max) {
+  box-shadow: particles($max);
+}
+@keyframes particles {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY($spacing * -1);
+  }
+}
+.particles {
+  transition: opacity 0.3s ease;
+  backface-visibility: hidden;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.space {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+}
+.particle,
+.particle::after {
+  background: transparent;
+}
+.particle::after {
+  position: absolute;
+  content: '';
+  top: $spacing;
+}
+.particle {
+  &:nth-child(1) {
+    &,
+    &::after {
+      @include particles(100);
+      width: 1px;
+      height: 1px;
+      border-radius: 1px;
+    }
+    animation: particles $time01 linear infinite;
+  }
+  &:nth-child(2) {
+    &,
+    &::after {
+      @include particles(400);
+      width: 2px;
+      height: 2px;
+      border-radius: 2px;
+    }
+    animation: particles $time02 linear infinite;
+  }
+}

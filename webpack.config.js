@@ -60,7 +60,7 @@ module.exports = (env = {}, options) => {
       ],
     },
     devServer: {
-      contentBase: './dist',
+      contentBase: './static',
       compress: true,
       port: env.PORT || 3000,
     },

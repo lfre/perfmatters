@@ -1,4 +1,4 @@
-import './index.scss';
+import './scss/index.scss';
 
 Reveal.initialize({
   controls: false,
@@ -16,16 +16,9 @@ const noop = () => ({});
 const addSlide = (module, number) => {
   if (!slides[number]) {
     const show = module.default;
-    slides[number] = show ? { show } : {};
+    slides[number] = typeof show === 'function' ? show : noop;
   }
   return slides[number];
-};
-
-const addHook = (slide, forward) => {
-  if (typeof slide.show === 'function') {
-    const hide = slide.show(forward);
-    slide.hide = typeof hide === 'function' ? hide : noop;
-  }
 };
 
 const loadSlide = number => new Promise((resolve, reject) => {
@@ -40,18 +33,13 @@ const loadSlide = number => new Promise((resolve, reject) => {
 const selectSlide = (number, action = 'show', forward = null) => {
   const slide = slides[number];
   if (slide) {
-    if (action === 'show' && !slide.hide) {
-      addHook(slide, forward);
-    }
-    if (slide[action]) {
-      slide[action](forward);
-    }
+    slide(action === 'show', forward);
   } else {
     loadSlide(number)
       .then((response) => {
         const { number: num, slide: sl } = response;
-        if (num === currentSlide && action === 'show') {
-          addHook(sl, forward);
+        if (num === currentSlide) {
+          sl(action === 'show', forward);
         }
       })
       .catch(noop);
