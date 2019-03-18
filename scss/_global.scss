@@ -1,0 +1,23 @@
+body{
+  font-family: 'Inter';
+}
+
+.reveal {
+  h1 {
+    color: $headline;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h2, h3, h4 { color: white; }
+
+  .progress span {
+    color: $headline;
+  }
+
+  .accent {
+    color: $accent;
+  }
+}
