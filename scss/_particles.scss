@@ -48,10 +48,10 @@ $time04: 400s;
   top: $spacing;
 }
 .particle {
-  &:nth-child(1) {
+   &:nth-child(1) {
     &,
     &::after {
-      @include particles(100);
+      @include particles(600);
       width: 1px;
       height: 1px;
       border-radius: 1px;
@@ -61,11 +61,31 @@ $time04: 400s;
   &:nth-child(2) {
     &,
     &::after {
-      @include particles(400);
+      @include particles(200);
       width: 2px;
       height: 2px;
       border-radius: 2px;
     }
     animation: particles $time02 linear infinite;
+  }
+  &:nth-child(3) {
+    &,
+    &::after {
+      @include particles(100);
+      width: 4px;
+      height: 4px;
+      border-radius: 4px;
+    }
+    animation: particles $time03 linear infinite;
+  }
+  &:nth-child(4) {
+    &,
+    &::after {
+      @include particles(400);
+      width: 2px;
+      height: 2px;
+      border-radius: 2px;
+    }
+    animation: particles $time04 linear infinite;
   }
 }

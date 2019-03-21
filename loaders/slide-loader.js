@@ -18,7 +18,15 @@ const readSlideContent = file => new Promise((done, reject) => {
   });
 });
 // process filepaths
-const processSlides = files => files.map(readSlideContent);
+const processSlides = (files) => {
+  files = files.sort((a, b) => {
+    const one = a.split('/')[1];
+    const two = b.split('/')[1];
+    return one - two;
+  });
+  return files.map(readSlideContent);
+};
+
 // read slides from directory
 const getSlides = () => fg(paths)
   .then(processSlides)
@@ -36,7 +44,7 @@ const startWatching = (template) => {
       if (err) return;
       const index = file.match(/\d/).pop();
       output[index] = contents;
-      result = output.join();
+      result = output.join('');
       writeFile(template, defaultContent, () => {});
     });
   });
@@ -51,7 +59,7 @@ module.exports = function loader(content) {
   if (options.isDev && !watching) {
     startWatching(options.template);
   }
-  if (!result && output.length) result = output.join();
+  if (!result && output.length) result = output.join('');
   content = content.replace('<%= content %>', result);
   return defaultLoader(content);
 };
