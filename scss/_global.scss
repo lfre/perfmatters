@@ -9,6 +9,15 @@ body{
 
   h2 {
     font-size: 3rem;
+    font-weight: 200;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
   }
 
   h2, h3, h4 { color: white; }
@@ -19,5 +28,15 @@ body{
 
   .accent {
     color: $accent;
+  }
+
+  .horizontal-group {
+    &:after{
+      clear:both;
+    }
+  }
+  .horizontal {
+    float: left;
+    margin-left: 10%;
   }
 }
