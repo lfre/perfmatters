@@ -42,7 +42,7 @@ const startWatching = (template) => {
   watcher.on('change', (file) => {
     readFile(file, 'utf8', (err, contents) => {
       if (err) return;
-      const index = file.match(/\d/).pop();
+      const index = file.match(/\d+/).pop();
       output[index] = contents;
       result = output.join('');
       writeFile(template, defaultContent, () => {});

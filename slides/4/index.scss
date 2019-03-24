@@ -1,5 +1,19 @@
 section:nth-child(5) {
-  .photo-perfmatters {
-    width: 90%;
+  .here {
+    position: absolute;
+    top: -90%;
+    left: -10%;
+  }
+  .mindblown-group {
+    position: relative;
+  }
+  .mindblown {
+    margin-bottom: 3rem;
+  }
+  .launch {
+    margin-bottom: 3rem;
+  }
+  .awesome {
+    margin-bottom: 3rem;
   }
 }

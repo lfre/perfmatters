@@ -1,9 +1,6 @@
 section:nth-child(1) {
   .main-title {
-    font-family: 'Inter';
-    font-weight: 900;
     color: $headline;
-    font-size: 7rem;
     text-transform: uppercase;
     margin-left: -10%;
     width: 120%;
@@ -12,6 +9,8 @@ section:nth-child(1) {
 
     h1 {
       display: inline-block;
+      font-size: 7rem;
+      font-weight: 900;
 
       span {
         font-family: 'Lato';
