@@ -1,0 +1,26 @@
+section:nth-child(11) {
+  .mobile-speed {
+    width: 100%;
+    margin-bottom: 2rem;
+    position: relative;
+    text-align: center;
+    img {
+      width: 100%;
+
+      &:last-child {
+        width: 81%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+  }
+
+  h4 {
+    margin-top: 1rem;
+    display: inline-block;
+    padding-bottom: 2px;
+    border-bottom: 2px solid $accent;
+  }
+}

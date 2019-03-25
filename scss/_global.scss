@@ -8,6 +8,16 @@ body{
     text-decoration: none;
   }
 
+  a {
+      display: inline-block;
+      border-bottom: 1px solid $accent;
+
+      &:hover{
+          color: $headline;
+          border-bottom: 1px solid $headline;
+      }
+  }
+
   .slides section .fragment.visible.hide-after {
     opacity: 0;
 
@@ -43,6 +53,10 @@ body{
 
   .title {
     margin-bottom: 5rem;
+  }
+
+  .white {
+    color: white;
   }
 
   .orange {

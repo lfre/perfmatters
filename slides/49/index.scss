@@ -1,0 +1,27 @@
+section:nth-child(50) {
+  h1 {
+    font-size: 20rem;
+  }
+  .first {
+    width: 5%;
+    display: inline-block;
+    margin-left: -0.1%;
+    margin-right: 1.3%;
+  }
+
+  .second {
+    width: 0px;
+    display: inline-block;
+
+    &.current-fragment {
+        width: 11%;
+        margin-right: 2.2%;
+    }
+  }
+
+  .second.current-fragment ~ .first {
+      width: 0;
+      margin: 0;
+      opacity: 0;
+  }
+}
