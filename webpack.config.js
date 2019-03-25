@@ -90,7 +90,9 @@ module.exports = (env = {}, options) => {
       new ProvidePlugin({
         Reveal: 'reveal/js/reveal',
       }),
-      new MiniCssExtractPlugin(),
+      new MiniCssExtractPlugin({
+        filename: isDev ? '[name].css' : '[name].[contenthash].css',
+      }),
       new HtmlWebpackPlugin({
         title: description,
         template,
