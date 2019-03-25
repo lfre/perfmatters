@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack -p && cp -R public/assets dist/assets",
+    "now-build": "webpack -p && cp -R public/assets dist/assets",
     "serve": "http-server ./dist -p 3000"
   },
   "husky": {
@@ -58,7 +58,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
-    "reveal.js": "git+ssh://git@github.com/hakimel/reveal.js.git#3.7.0",
+    "reveal.js": "github:hakimel/reveal.js#master",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",

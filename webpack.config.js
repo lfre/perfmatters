@@ -15,6 +15,9 @@ module.exports = (env = {}, options) => {
   const template = 'index.html';
   return {
     entry: './index.js',
+    output: {
+      filename: isDev ? '[name].js' : '[name].[contenthash].js',
+    },
     mode,
     module: {
       rules: [

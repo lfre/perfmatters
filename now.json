@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "name": "perfmatters",
+    "builds": [
+        { "src": "package.json", "use": "@now/static-build" }
+    ],
+    "routes": [
+      { "src": "/(.*).js", "headers": { "cache-control": "s-maxage=31536000,immutable" }, "dest": "/$1.js" },
+      { "src": "/favicon.ico", "dest": "/assets/favicon.ico" },
+      { "src": "/", "headers": {"cache-control": "s-maxage=0"}, "dest": "/index.html" }
+    ]
+}
