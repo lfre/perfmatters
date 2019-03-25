@@ -1,6 +1,7 @@
 {
     "version": 2,
     "name": "perfmatters",
+    "alias": [ "perfmatters.alfre.do" ],
     "builds": [
         { "src": "package.json", "use": "@now/static-build" }
     ],
