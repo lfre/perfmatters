@@ -33,7 +33,7 @@ body{
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 200;
   }
 
@@ -42,7 +42,7 @@ body{
   }
 
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   h2, h3, h4 { color: white; }
@@ -84,13 +84,8 @@ body{
   }
 
   .horizontal-group {
-    &:after{
-      clear:both;
-    }
-  }
-  .horizontal {
-    float: left;
-    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   ul {

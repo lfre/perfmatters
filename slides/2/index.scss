@@ -1,15 +1,19 @@
 section:nth-child(3) {
-  height: 30%;
-  .hearst-logo,{
-    width: 15%;
+  height: 35%;
+
+  .hearst-logo{
+    width: 18%;
+    display: inline-block;
   }
 
   .drum  {
-    width: 17%;
+    width: auto;
+    height: 100%;
     margin: 0 10%;
   }
 
   .sauce {
-    width: 10%;
+    width: auto;
+    height: 100%;
   }
 }

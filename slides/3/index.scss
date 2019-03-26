@@ -1,6 +1,8 @@
 section:nth-child(4) {
   h2 {
     font-weight: 600;
-    text-shadow: 1px -4px 20px black;
+  }
+  h2,span {
+    text-shadow: 1px 1px 30px black;
   }
 }

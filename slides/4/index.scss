@@ -1,19 +1,28 @@
 section:nth-child(5) {
   .here {
     position: absolute;
-    top: -90%;
-    left: -10%;
-  }
-  .mindblown-group {
-    position: relative;
+    top: -80%;
+    left: 0;
   }
   .mindblown {
-    margin-bottom: 3rem;
+    position: relative;
+    margin-right: 7%;
+    width: 21%;
   }
   .launch {
-    margin-bottom: 3rem;
+    margin-right: 7%;
+    width: 28%;
   }
+
   .awesome {
-    margin-bottom: 3rem;
+    width: 37%;
+
+    img {
+      margin-bottom: 2.2rem;
+    }
+  }
+
+  img {
+    margin-bottom: 2rem;
   }
 }

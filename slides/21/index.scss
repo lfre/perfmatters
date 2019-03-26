@@ -1,7 +1,29 @@
-section:nth-child(22) {
-  .title {
-      line-height: 7rem;
-      position: relative;
-      margin-bottom: 3rem;
+.third-party {
+  height: 100vh;
+  position: relative;
+
+  .legend {
+    position: absolute;
+    top: 10%;
+    left: 0;
+
+    li {
+      font-size: 2.5rem;
+    }
+  }
+
+  li:first-child{
+    color: #0bcc0b;
+  }
+
+  li:nth-child(2) {
+    color: #ff00ff;
+  }
+
+  .waterfall {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
   }
 }
