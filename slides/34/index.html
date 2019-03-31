@@ -1,8 +1,65 @@
 
-<section>
-  <h1 class="title">Could performance affect your hypothesis?</h1>
-  <ul>
-    <li class="fragment italic accent">"We accounted for it during testing"</li>
-    <li class="fragment">Features are not isolated</li>
-  </ul>
+<section class="abstract">
+  <h1 class="title">Abstract frequent optimizations</h1>
+  <div class="container">
+    <h2 class="bold italic accent gbrc fragment hide-after">getBoundingClientRect</h2>
+    <img class="fragment hide-after" data-src="/assets/images/rect.png" height="100%"/>
+    <pre class="code fragment hide-after">
+      <code data-noescape data-trim>
+        // module-a.js
+        requestAnimationFrame(() => {
+          const [right, bottom] = el.getBoundingClientRect();
+        });
+        // module-b.js
+        requestAnimationFrame(() => {
+          el.classList.add('change-size'); <span class="scream">😱</span>
+        });
+      </code>
+    </pre>
+    <h2 class="io bold italic accent fragment hide-after">IntersectionObserver</h2>
+    <pre class="code io-spec fragment hide-after">
+      <code data-noescape data-trim>
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            //   <mark>entry.boundingClientRect</mark>
+            //   entry.intersectionRatio
+            //   entry.intersectionRect
+            //   entry.isIntersecting
+            //   entry.rootBounds
+            //   entry.target
+            //   entry.time
+          });
+        });
+        // observe the element
+        io.observe(el);
+      </code>
+    </pre>
+    <pre class="code gbrc-async fragment hide-after">
+      <code data-noescape data-trim>
+        const getBoundingClientRect = el =>
+          new Promise((resolve) => {
+            const io = new IntersectionObserver((entries) => {
+              <mark>resolve(entries.shift().boundingClientRect);</mark>
+              io.disconnect();
+            });
+            io.observe(el);
+          });
+      </code>
+    </pre>
+    <pre class="code touchstart fragment">
+        <code data-noescape data-trim>
+        const touchDevice = 'ontouchstart' in window;
+
+        const addListener = (target, type, listener) => {
+          // switch click to touchstart on touch devices
+          if (type === 'click' && touchDevice) {
+            <mark>type = 'touchstart';</mark>
+          }
+
+          target.addEventListener(type, listener);
+        }
+
+        </code>
+    </pre>
+  </div>
 </section>

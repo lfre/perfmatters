@@ -1,6 +1,10 @@
-section:nth-child(2) {
+.intro-name {
   h2 {
     font-family: 'Lato';
     font-weight: normal;
   }
+}
+
+.call-me-al {
+  transition: opacity 1s ease;
 }

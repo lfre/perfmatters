@@ -1,0 +1,35 @@
+.bottlenecks {
+  .container {
+    position: relative;
+  }
+
+  @keyframes example {
+    from {
+      top: 0;
+    }
+    to {
+      top: -100rem;
+    }
+  }
+
+  .layout-trashing {
+    position: relative;
+
+    &.current-fragment {
+      animation-delay: 1.5s;
+      animation-timing-function: linear;
+      animation-name: example;
+      animation-duration: 6s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  .code-review {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60%;
+    transform: translate3d(-50%, 0, 0);
+  }
+}

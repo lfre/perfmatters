@@ -1,9 +1,19 @@
 import './scss/index.scss';
+import 'reveal.js/lib/js/head.min';
 
 Reveal.initialize({
   controls: false,
   history: true,
   progress: true,
+  dependencies: [
+    {
+      src: '/assets/js/lib/highlight.js',
+      async: true,
+      callback() {
+        hljs.initHighlightingOnLoad();
+      },
+    },
+  ],
 });
 
 const urlParams = new URLSearchParams(window.location.search);

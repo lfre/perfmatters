@@ -1,0 +1,30 @@
+.reveal .product-design {
+  .wrapper {
+    position: relative;
+  }
+  .container {
+    height: 35rem;
+  }
+  .lifecycle {
+    width: 100%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  .right-arrow {
+    width: 4%;
+    padding: 0 1%;
+    vertical-align: text-top;
+  }
+
+  .we-think {
+    position: absolute;
+    bottom: 10%;
+    left: 25%;
+    top: auto;
+  }
+
+  .top-arrow {
+    width: 50%;
+  }
+}

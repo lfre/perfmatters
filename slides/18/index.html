@@ -1,9 +1,35 @@
-<section>
-  <h1 class="title">After</h1>
-  <div class="filesize fragment">
-      <img data-src="/assets/images/feed-new.png" width="100%"/>
-      <h4 class="bold"><span class="accent">27kb</span> Uncompressed</h4>
-  </div>
-  <img class="fragment" data-src="/assets/images/feed-new-wpt.png" width="100%"/>
-  <img class="fragment webpagetest" data-src="/assets/images/after.png" width="100%"/>
+<section class="infer">
+  <h2 class="orange bold">Infer by user action</h2>
+  <div class="container">
+    <video class="fragment hide-after" style="margin-top: 2%" autoplay loop muted width="80%">
+        <source src="/assets/videos/infinite-load.webm" type="video/webm" />
+        <source src="/assets/videos/infinite-load.mp4" type="video/mp4" />
+    </video>
+    <pre class="fragment">
+        <code data-noescape data-trim>
+          // feed container
+          const feed = document.querySelector('.feed');
+
+          // closest element to the middle of the feed
+          let middleish = feed.children[Math.floor(feed.childElementCount / 2)];
+
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // disconnect the observer
+                io.disconnect();
+                // import the module
+                import('app/modules/infinite-load').then((infiniteLoad) => {
+                  const InfiniteLoad = infiniteLoad.default;
+                  // initialize the module
+                  this.infiniteLoad = new InfiniteLoad(feed);
+                });
+              }
+            });
+          });
+
+          io.observe(middleish);
+        </code>
+      </pre>
+    </div>
 </section>

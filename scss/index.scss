@@ -1,4 +1,6 @@
 @import '~reveal/css/reveal';
+@import '~reveal/lib/css/zenburn';
+
 @import 'particles.scss';
 @import 'variables.scss';
 
@@ -15,20 +17,31 @@
 @import '../slides/6/index.scss';
 @import '../slides/7/index.scss';
 
-@import '../slides/9/index.scss';
-@import '../slides/10/index.scss';
-
+@import '../slides/11/index.scss';
 @import '../slides/12/index.scss';
-@import '../slides/13/index.scss';
+
+@import '../slides/14/index.scss';
+@import '../slides/15/index.scss';
 
 @import '../slides/18/index.scss';
 
-@import '../slides/21/index.scss';
-@import '../slides/22/index.scss';
+@import '../slides/20/index.scss';
 
-@import '../slides/26/index.scss';
+@import '../slides/24/index.scss';
+@import '../slides/25/index.scss';
 
-@import '../slides/37/index.scss';
+@import '../slides/30/index.scss';
+@import '../slides/31/index.scss';
 
-@import '../slides/50/index.scss';
-@import '../slides/51/index.scss';
+@import '../slides/32/index.scss';
+@import '../slides/34/index.scss';
+
+@import '../slides/41/index.scss';
+
+@import '../slides/44/index.scss';
+@import '../slides/46/index.scss';
+
+@import '../slides/62/index.scss';
+@import '../slides/63/index.scss';
+
+@import '../slides/65/index.scss';
