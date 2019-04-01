@@ -1,5 +1,15 @@
 
 <section>
-  <h1 class="title">What should we do if we care about performance?<h1>
-  <h2 class="fragment" style="line-height:4.5rem;">Don't stop at <span class="italic accent">tools</span> or <span class="italic accent">techniques</span> but how they fit into a <span class="bold italic accent">process</span>.</h2>
+  <h1 class="title">Spotter<h1>
+  <img data-src="/assets/images/spotter.png"/>
+<aside class="notes">
+ - It analyzed the files modified in each open PR, and added a comment letting you know what other PRs were modifying the same files,
+ - so that when a PR is merged, you don’t find that someone modified or removed a piece of code you were relying on,
+ - and a piece of work that was deemed “done” is now back in development.
+
+* This approach could be used to have a bot user that can generate a branch on demand and copying open PRs that are ready to merge every day,
+* open a temporary PR and run performance tests.
+* That way, we’d be able to predict that if an n amount of PRs were all to get merged and released today, that'd be our performance change.
+* It’d allow us to be more proactive than reactive towards regressions and I’m happy to say that my plan is to open source these tools.
+</aside>
 </section>

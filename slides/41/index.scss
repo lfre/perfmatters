@@ -3,7 +3,7 @@
     position: relative;
   }
   .container {
-    height: 35rem;
+    height: 25rem;
   }
   .lifecycle {
     width: 100%;
@@ -17,14 +17,33 @@
     vertical-align: text-top;
   }
 
-  .we-think {
-    position: absolute;
-    bottom: 10%;
-    left: 25%;
-    top: auto;
+  h4 {
+    display: inline;
+    vertical-align: middle;
   }
 
-  .top-arrow {
-    width: 50%;
+  .we-think {
+    bottom: 5%;
+    top: auto;
+    left: 53%;
+    width: 100%;
+
+    .top-arrow {
+      width: 6%;
+      vertical-align: middle;
+    }
+  }
+
+  .where-it-should {
+    width: 100%;
+    left: 40%;
+    top: 5%;
+
+    .top-arrow {
+      width: 6%;
+      transform: rotate(180deg);
+      vertical-align: top;
+    }
+
   }
 }

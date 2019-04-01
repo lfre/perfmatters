@@ -6,4 +6,10 @@
   </div>
 <img class="fragment" data-src="/assets/images/feed-old-wpt.png" width="100%"/>
 <img class="fragment webpagetest" data-src="/assets/images/before.png" width="100%"/>
+<aside class="notes">
+* Before, we had a 360kb bundle that was used on all pages but also the homepage,
+but the feed pages aren’t as visible as the homepage.
+* On a mobile device with 3G, it took almost 2 seconds to load, but then it blocked the main thread while executing which prevents other things from loading.
+* This reflected into our load time of 13seconds
+</aside>
 </section>

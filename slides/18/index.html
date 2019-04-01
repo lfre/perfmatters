@@ -1,35 +1,15 @@
 <section class="infer">
   <h2 class="orange bold">Infer by user action</h2>
   <div class="container">
-    <video class="fragment hide-after" style="margin-top: 2%" autoplay loop muted width="80%">
+    <video class="infinite-load-video fragment hide-after" style="margin-top: 2%" loop muted width="80%">
         <source src="/assets/videos/infinite-load.webm" type="video/webm" />
         <source src="/assets/videos/infinite-load.mp4" type="video/mp4" />
     </video>
-    <pre class="fragment">
-        <code data-noescape data-trim>
-          // feed container
-          const feed = document.querySelector('.feed');
-
-          // closest element to the middle of the feed
-          let middleish = feed.children[Math.floor(feed.childElementCount / 2)];
-
-          const io = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                // disconnect the observer
-                io.disconnect();
-                // import the module
-                import('app/modules/infinite-load').then((infiniteLoad) => {
-                  const InfiniteLoad = infiniteLoad.default;
-                  // initialize the module
-                  this.infiniteLoad = new InfiniteLoad(feed);
-                });
-              }
-            });
-          });
-
-          io.observe(middleish);
-        </code>
-      </pre>
-    </div>
+    <img class="fragment" data-src="/assets/images/infinite-load-code.png" width="90%" style="margin-top: 2%"/>
+  </div>
+<aside class="notes">
+* You can defer code using the page lifecycle methods
+* But more effectively is to infer by user actions, this means that if a user decides to interact with something sooner, that’s when you load code, instead of deferring by default and possibly frustrating that user.
+* On our homepage, the code that deals with loading more items is imported when the user has reached a certain distance. The common way to do this is with a scroll handler and the scroll position, but thanks to the Intersection Observer, we are able to get the middleish element on the feed and hook to that. The module itself uses a similar technique but uses the last item with a margin to decide when to fetch new items.
+</aside>
 </section>

@@ -6,4 +6,15 @@
      <li class="fragment"><img data-src="/assets/images/third-party.gif" width="90%"/></li>
   </ul>
   <img class="waterfall hide-after" data-src="/assets/images/waterfall-explained.png"/>
+<aside class="notes">
+* On the right side, you can see the waterfall for that same test of 2seconds. I have painted the resources to differentiate
+* The resources at the top are first party, and there 11 of them
+* The tag manager is the 7th request and it loads asynchronously, which then requests our Third Party
+* with 125 requests. Besides the large amount of requests, these cannot be optimized or even prefetched because they change every time.
+* So to answer the question “why is it still slow?"
+* The answer was pretty clear
+
+- Fixing this was going to take more than having executive buy in for how spend our time.
+- There are multiple teams that don’t interact with us on a daily basis modifying this code, which is the goal of tag managers.
+</aside>
 </section>

@@ -1,4 +1,24 @@
+
 <section>
-  <h1 class="title">Performance budgets<br/>are great, but...<h1>
-  <h2 class="fragment">It's rarely a <span class="accent">single</span> Pull Request</h2>
+    <h1 class="title">Customization is key <span><img width="6%" data-src="/assets/images/key.png"/></span><h1>
+    <h2 style="font-size: 2.5rem;">
+        <span class="accent">Wishlist:</span>
+        Performance options per bundle</h2>
+    <pre class="fragment">
+      <code data-noescape data-trim>
+        <span class="green">module<span class="period">.</span>exports</span> = {
+          performance: {
+            assetFilter: function(assetFilename) {
+              return !legacy.includes(assetFilename);
+            }
+          }
+        };
+      </code>
+  </pre>
+<aside class="notes">
+- This is on my wishlist.
+- I wish web pack would allow options per entry or bundle.
+- You can use the filter option, but this means the legacy files will not be covered and it becomes the wild west until they are refactored.
+- You can argue that you can have multiple configurations, and that is true but that requires a bigger effort, and then we wonder why companies don’t invest in their performance.
+</aside>
 </section>

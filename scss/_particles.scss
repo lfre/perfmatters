@@ -29,6 +29,10 @@ $time04: 400s;
 
   &.show {
     opacity: 1;
+
+    & ~ .footer {
+      opacity: 1;
+    }
   }
 }
 

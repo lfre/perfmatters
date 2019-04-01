@@ -1,0 +1,59 @@
+.dx {
+  position: relative;
+  h1 {
+    font-size: 20rem;
+  }
+  .first {
+    width: 5%;
+    display: inline-block;
+    margin-left: -0.1%;
+    margin-right: 2.5%;
+  }
+
+  .second {
+    width: 0px;
+    display: inline-block;
+
+    &.current-fragment {
+        width: 13%;
+        margin-right: 2.5%;
+    }
+  }
+
+  .second.current-fragment ~ .first {
+      width: 0;
+      margin: 0;
+      opacity: 0;
+  }
+
+  .bubble {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius:140px;
+    background-color: $headline;
+    line-height: 140px;
+    text-align: center;
+  }
+
+  .qa {
+    top: -23%;
+    left: 15%;
+  }
+
+  .product {
+    top: 35%;
+    left: 5%;
+  }
+
+  .design {
+    right: 15%;
+    top: -23%;
+  }
+
+  .marketing {
+    font-size: 1.5rem;
+    right: 5%;
+    bottom: 30%;
+  }
+}

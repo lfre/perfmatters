@@ -2,10 +2,51 @@ body{
   font-family: 'Inter';
 }
 
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 .reveal {
   pre {
     font-size: 2rem;
     margin: 0;
+  }
+
+  .pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
   }
 
   code {
@@ -15,8 +56,9 @@ body{
     margin: 0;
   }
 
-  .code-green {
-    color: #88C25D;
+  .hljs-comment {
+    color: grey;
+    font-style: italic;
   }
 
   .hljs {
@@ -24,6 +66,51 @@ body{
     letter-spacing: -0.5px;
     text-align: left;
     margin-top: 5rem;
+
+    mark {
+      background-color: $headline;
+      color: white;
+      * {
+        color: white;
+      }
+    }
+  }
+
+  .hljs-keyword {
+    color: #BB88E2; //violet
+    font-style: italic;
+  }
+
+  .hljs-built_in {
+    color: #D7DEEB;
+  }
+
+  .code-blue {
+    color: #378FFC;
+  }
+  .code-lightblue {
+    color: #87CEFA;
+  }
+  .code-white {
+    color: #D7DEEB;
+  }
+  .code-quotes {
+    color: #4B7D98;
+  }
+  .code-orange {
+    color: #ECC48D;
+  }
+  .code-yellow {
+    color: #FFD700;
+  }
+  .code-turq {
+    color: #7EDCCB;
+  }
+  .code-pink {
+    color: #DA70D6;
+  }
+  .code-green {
+    color: #9AD968;
   }
 
   a {
@@ -135,6 +222,37 @@ body{
       font-size: 3rem;
       font-weight: 200;
       margin-bottom: 3rem;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    bottom: 0;
+    padding: 2rem;
+    z-index: 999;
+    box-sizing: border-box;
+
+    h3 {
+      font-size: 2.6rem;
+      color: #D8BFD8;
+      opacity: 0.8;
+    }
+
+    a {
+      border-bottom: none;
+    }
+
+    .site {
+      float: left;
+    }
+
+    .twitter {
+      float: right;
     }
   }
 }

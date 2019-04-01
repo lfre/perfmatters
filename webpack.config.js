@@ -88,7 +88,7 @@ module.exports = (env = {}, options) => {
       new HashedModuleIdsPlugin(),
       new NamedChunksPlugin(),
       new ProvidePlugin({
-        Reveal: 'reveal/js/reveal',
+        Reveal: 'expose-loader?Reveal!reveal/js/reveal',
       }),
       new MiniCssExtractPlugin({
         filename: isDev ? '[name].css' : '[name].[contenthash].css',

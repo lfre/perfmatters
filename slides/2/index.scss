@@ -16,4 +16,20 @@ section:nth-child(3) {
     width: auto;
     height: 100%;
   }
+
+  svg {
+    fill: white;
+  }
+
+  .twitter {
+    margin-top: 5rem;
+
+    a {
+      border-bottom: none;
+    }
+  }
+  .icon {
+    width: 5rem;
+    vertical-align: middle;
+  }
 }

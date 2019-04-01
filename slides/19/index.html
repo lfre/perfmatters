@@ -1,3 +1,18 @@
 <section>
   <h1 class="title">Progressive Enhancements</h1>
+  <div class="container">
+    <video class="search-overlay-video fragment hide-after" loop muted width="80%">
+        <source src="/assets/videos/search-overlay.webm" type="video/webm" />
+        <source src="/assets/videos/search-overlay.mp4" type="video/mp4" />
+    </video><br/><br/>
+    <img class="fragment" data-src="/assets/images/search-overlay-code.png" width="100%"/>
+  </div>
+<aside class="notes">
+* You can also use Progressive Enhacements
+* This term is used to refer to polyfills when supporting new features in older browsers, but this can applies to features as well.
+* On our sites, we have a search modal that opens and some logic that deals with the typeahead logic. if you narrow down the requirements, it’s critical that the user is able to type and search, so in this scenario the typeahead becomes an enhancement.
+* We separated the logic that deals with opening the modal, which is minimal and we realized that we could apply an awesome Javascript technique of deleting code and doing it with CSS.
+* We use the hash target to show/hide the modal, it's worth mentioning that there are some accessibility concerns like the page scrolling to the top when switching to an empty hash but in mobile our search is not sticky, and on desktop we’re able to load additional Javascript to prevent this.
+* A bonus is that the autocomplete module was using some vendors, so we were able to tackle it later because we moved it away from the critical rendering path.
+</aside>
 </section>

@@ -62,4 +62,22 @@
         </code>
     </pre>
   </div>
+<aside class="notes">
+* For example: getBoundingClientRect.
+* It’s an amazing method that returns the coordinates, width and height, and the dimensions of an element, and it’s extremely precise.
+* But unfortunately, it’s a synchronous method and forces a layout. This means the browser has to drop whatever is doing, and paint the screen, which can translate to visual jank.
+
+* One possible solution is to use requestAnimationFrame, but if one of those frames changes the dimensions of the element, you’ll still force a layout.
+
+* So going back to the Intersection Observer, while I was doing the infinite loop technique. I realized a couple of things:
+    * The entries on the IO have a boundingClientRect,
+    and the callback executes after observing an element,
+    not only when it’s in view,
+    so all your code needs an if statement for isIntersecting.
+
+    * But this means, we can have an asynchronous getBoundingClientRect, and this will be the safest way to do it as of now, because you’re asking to be notified of the next frame.
+
+* Another optimization is to automatically switch all your click events to mouse down for improved perceived performance.
+This will give you on average ~100ms head start, which leads me to the question that came up often:
+</aside>
 </section>
