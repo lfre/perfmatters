@@ -7,20 +7,20 @@
     <pre class="code fragment hide-after">
       <code data-noescape data-trim>
         // module-a.js
-        requestAnimationFrame(() => {
-          const [right, bottom] = el.getBoundingClientRect();
+        <span class="code-blue">requestAnimationFrame</span>(() => {
+          <span class="code-blue">const</span> <span class="code-violet">{</span> right, bottom <span class="code-violet">}</span> = el.<span class="code-lightblue">getBoundingClientRect</span>();
         });
         // module-b.js
-        requestAnimationFrame(() => {
-          el.classList.add('change-size'); <span class="scream">😱</span>
+        <span class="code-blue">requestAnimationFrame</span>(() => {
+          el.<span class="code-blue">classList</span>.<span class="code-violet">add</span>(<span class="code-orange">'change-size'</span>); <span class="scream">😱</span>
         });
       </code>
     </pre>
     <h2 class="io bold italic accent fragment hide-after">IntersectionObserver</h2>
     <pre class="code io-spec fragment hide-after">
       <code data-noescape data-trim>
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
+        <span class="code-blue">const</span> io = <span class="code-blue">new</span> <span class="code-orange">IntersectionObserver</span>((<span class="code-yellow">entries</span>) => {
+          entries.<span class="code-violet">forEach</span>(entry => {
             //   <mark>entry.boundingClientRect</mark>
             //   entry.intersectionRatio
             //   entry.intersectionRect
@@ -31,41 +31,41 @@
           });
         });
         // observe the element
-        io.observe(el);
+        io.<span class="code-blue">observe</span>(el);
       </code>
     </pre>
     <pre class="code gbrc-async fragment hide-after">
       <code data-noescape data-trim>
-        const getBoundingClientRect = el =>
-          new Promise((resolve) => {
-            const io = new IntersectionObserver((entries) => {
+        <span class="code-blue">const</span> getBoundingClientRect = <span class="code-yellow">el</span> =>
+          <span class="c-turq">new</span> <span class="code-orange">Promise</span>((resolve) => {
+            <span class="code-blue">const</span> io = <span class="c-turq">new</span> <span class="code-orange">IntersectionObserver</span>((entries) <span class="code-blue">=></span> <span class="code-yellow">{</span>
               <mark>resolve(entries.shift().boundingClientRect);</mark>
-              io.disconnect();
-            });
-            io.observe(el);
+              io.<span class="code-blue">disconnect</span><span class="code-pink">()</span><span class="code-violet">;</span>
+            <span class="code-yellow">}</span>);
+            io.<span class="code-blue">observe</span><span class="code-pink">(</span>el<span class="code-pink">)</span><span class="code-violet">;</span>
           });
       </code>
     </pre>
     <pre class="code touchstart fragment">
         <code data-noescape data-trim>
-        const touchDevice = 'ontouchstart' in window;
+        <span class="code-blue">const</span> <span class="code-blue italic">touchDevice</span> <span class="code-violet">=</span> '<span class="code-orange">ontouchstart</span>' <span class="c-turq">in</span> window;
 
-        const addListener = (target, type, listener) => {
+        <span class="code-blue">const addListener</span> <span class="code-violet">=</span> <span class="code-yellow">(</span>target, <span class="code-white">type</span>, listener<span class="code-yellow">)</span> => <span class="code-yellow">{</span>
           // switch click to touchstart on touch devices
-          if (type === 'click' && touchDevice) {
+          if <span class="code-violet">(</span><span class="code-white">type</span> <span class="code-violet">===</span> <span class="code-orange">'click'</span> <span class="code-violet">&&</span> touchDevice<span class="code-violet">)</span> <span class="code-violet">{</span>
             <mark>type = 'touchstart';</mark>
-          }
+          <span class="code-violet">}</span>
 
-          target.addEventListener(type, listener);
-        }
+          target<span class="code-violet">.</span><span class="code-blue">addEventListener</span><span class="code-violet">(</span><span class="code-white">type</span><span class="code-violet">,</span> listener<span class="code-violet">)</span>;
+        <span class="code-yellow">}</span>
 
         </code>
     </pre>
   </div>
 <aside class="notes">
-* For example: getBoundingClientRect.
-* It’s an amazing method that returns the coordinates, width and height, and the dimensions of an element, and it’s extremely precise.
-* But unfortunately, it’s a synchronous method and forces a layout. This means the browser has to drop whatever is doing, and paint the screen, which can translate to visual jank.
+<p>* For example: getBoundingClientRect.</p>
+<p> It’s an amazing method that returns the coordinates, width and height, and the dimensions of an element, and it’s extremely precise.</p>
+<p> But unfortunately, it’s a synchronous method and forces a layout. This means the browser has to drop whatever is doing, and paint the screen, which can translate to visual jank.</p>
 
 * One possible solution is to use requestAnimationFrame, but if one of those frames changes the dimensions of the element, you’ll still force a layout.
 

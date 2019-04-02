@@ -69,48 +69,51 @@ body{
 
     mark {
       background-color: $headline;
-      color: white;
+      color: black;
+      font-weight: bold;
+      margin-top: 5px;
       * {
-        color: white;
+        color: black;
       }
     }
   }
-
-  .hljs-keyword {
-    color: #BB88E2; //violet
-    font-style: italic;
+  .code-violet{
+    color: #BB88E2;
   }
-
-  .hljs-built_in {
-    color: #D7DEEB;
-  }
-
-  .code-blue {
+  .code-blue, .code-blue * {
     color: #378FFC;
   }
   .code-lightblue {
     color: #87CEFA;
   }
-  .code-white {
+  .code-white, .code-white * {
     color: #D7DEEB;
   }
   .code-quotes {
     color: #4B7D98;
   }
-  .code-orange {
+  .code-orange, .code-orange * {
     color: #ECC48D;
   }
-  .code-yellow {
+  .code-yellow, .code-yellow * {
     color: #FFD700;
   }
-  .code-turq {
+  .c-turq, .c-turq * {
     color: #7EDCCB;
   }
-  .code-pink {
+  .code-pink, .code-pink * {
     color: #DA70D6;
   }
-  .code-green {
+  .code-green, .code-green * {
     color: #9AD968;
+  }
+
+  .hljs-keyword {
+    @extend .code-violet;
+  }
+
+  .hljs-built_in {
+    @extend .code-white;
   }
 
   a {

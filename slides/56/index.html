@@ -6,13 +6,13 @@
         Performance options per bundle</h2>
     <pre class="fragment">
       <code data-noescape data-trim>
-        <span class="green">module<span class="period">.</span>exports</span> = {
-          performance: {
-            assetFilter: function(assetFilename) {
-              return !legacy.includes(assetFilename);
-            }
-          }
-        };
+        <span class="code-green">module</span><span class="code-white">.</span><span class="code-green">exports</span> = <span class="code-yellow">{</span>
+          performance: <span class="code-pink">{</span>
+            <span class="code-blue">assetFilter</span>: <span class="code-blue normal">function</span><span class="code-lightblue">(</span>assetFilename<span class="code-lightblue">)</span> <span class=" code-lightblue">{</span>
+              <span class="italic">return</span> <span class="code-violet">!</span>legacy.<span class="code-blue">includes</span><span class="code-yellow">(</span>assetFilename<span class="code-yellow">)</span>;
+            <span class="code-lightblue">}</span>
+          <span class="code-pink">}</span>
+        <span class="code-yellow">}</span>;
       </code>
   </pre>
 <aside class="notes">
