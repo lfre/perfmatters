@@ -1,35 +1,8 @@
-section:nth-child(3) {
-  height: 35%;
-
-  .hearst-logo{
-    width: 18%;
-    display: inline-block;
+section:nth-child(4) {
+  h2 {
+    font-weight: 600;
   }
-
-  .drum  {
-    width: auto;
-    height: 100%;
-    margin: 0 10%;
-  }
-
-  .sauce {
-    width: auto;
-    height: 100%;
-  }
-
-  svg {
-    fill: white;
-  }
-
-  .twitter {
-    margin-top: 5rem;
-
-    a {
-      border-bottom: none;
-    }
-  }
-  .icon {
-    width: 5rem;
-    vertical-align: middle;
+  h2,span {
+    text-shadow: 1px 1px 30px black;
   }
 }
