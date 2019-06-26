@@ -1,28 +1,11 @@
 section:nth-child(7) {
-  .description {
-    margin-top: 5.5rem;
-
-    p {
-      margin-bottom: 2rem;
-    }
+  .fragment {
+    position: relative;
   }
 
-  .logos {
-    margin-top: 2rem;
-
-    * {
-      width: 200px;
-    }
-
-    & .cosmopolitan-logo {
-      margin-bottom: 0.5rem;
-    }
-    & .esquire-logo {
-      margin: 0 4rem;
-      margin-top: 5.2rem;
-    }
-    & .elle-logo {
-      width: 150px;
-    }
+  .js {
+    position: absolute;
+    top: 60%;
+    left: 45%;
   }
 }

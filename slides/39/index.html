@@ -1,10 +1,27 @@
 
-<section>
-  <img data-src="/assets/images/cross-functional.png" width="100%"/>
+<section class="share-specific" data-background-video="/assets/videos/specific.mp4" data-background-video-loop="true" data-background-opacity="0.2">
+  <h2 class="bold title">This is a chance to share<br/> <span class="orange italic">specific</span> knowledge</h2>
+<h3 class="fragment">
+    <span class="bold orange">Render</span>
+    <span class="accent">-></span> <span>Markup Size</span>
+    <span class="accent">-></span> <span>TTFB</span>
+    <span class="accent">-></span> <span class="orange">SEO Impact</span>
+    <h1 class="fragment bold orange">=</h1><br/>
+    <ul>
+       <li class="fragment">Reduce DNS Lookups</li>
+       <li class="fragment">Use semantic HTML elements</li>
+       <li class="fragment">Use regular URLs instead of hashes</li>
+       <li class="fragment">GraphQL</li>
+    </ul>
+</h3>
 <aside class="notes">
-- Last year at the end of June.
-- I watched a talk by Lauren Younger called How to manage performance like a feature,
-and this image about Cross-Functional Management looked familiar.
-- At Hearst we have the same roles, but I’ve been focusing only on Engineering and Management.
+* This is a chance to share specific knowledge
+* For example: If our action is to add something to our server side rendering becomes our goal is to improve the SEO impact of those pages, we can draw a path that includes looking at the markup size, and how that affects our Time to First Byte.
+    * and prescribe some specific optimizations
+    * Reducing DNS lookups
+    * Using semantic HTML elements
+    * Using regular URLs instead of hashes, if you have single page app use the History API to change content dynamically.
+    * If you’re hitting multiple internal APIs, consider consolidating them behind a GraphQL endpoint.
+    * This is like going to the doctor and telling them you’re planing to get sick in a month, so might as well give you the prescription for that date now.
 </aside>
 </section>

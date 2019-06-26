@@ -1,13 +1,14 @@
-section:nth-child(16) {
-  .filesize {
+.wpt-videos {
+  .video-container {
     position: relative;
   }
-  h4 {
-    position: absolute;
-    bottom: 33%;
-    right: 10%;
+
+  .before-video{
+    margin-right: 5%;
   }
-  .webpagetest {
-    margin-top: 4rem;
+  .last-new {
+    position: absolute;
+    top: 0;
+    right: 10.8%;
   }
 }

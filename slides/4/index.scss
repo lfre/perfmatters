@@ -1,28 +1,19 @@
 section:nth-child(5) {
-  .here {
-    position: absolute;
-    top: -80%;
-    left: 0;
-  }
-  .mindblown {
-    position: relative;
-    margin-right: 7%;
-    width: 21%;
-  }
-  .launch {
-    margin-right: 7%;
-    width: 28%;
-  }
-
-  .awesome {
-    width: 37%;
-
-    img {
-      margin-bottom: 2.2rem;
-    }
-  }
-
-  img {
+  .mobile-speed {
+    width: 100%;
     margin-bottom: 2rem;
+    position: relative;
+    text-align: center;
+    img {
+      width: 100%;
+
+      &:last-child {
+        width: 81%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
   }
 }

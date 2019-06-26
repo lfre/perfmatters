@@ -1,6 +1,15 @@
-<section data-background-image="/assets/images/perfmatters-bg.jpg" data-background-opacity="0.3">
-  <img data-src="/assets/images/conference.jpg" width=600/>
-  <aside class="notes">
-    and if I could put it in a word...
+<section>
+  <h1 class="title">Before</h1>
+  <div class="filesize fragment">
+    <img data-src="/assets/images/feed-old.png" width="100%" />
+    <h4 class="bold"><span class="accent">360kb</span> Uncompressed</h4>
+  </div>
+<img class="fragment" data-src="/assets/images/feed-old-wpt.png" width="100%"/>
+<img class="fragment webpagetest" data-src="/assets/images/before.png" width="100%"/>
+<aside class="notes">
+* Before, we had a 360kb bundle that was used on all pages but also the homepage,
+but the feed pages aren’t as visible as the homepage.
+* On a mobile device with 3G, it took almost 2 seconds to load, but then it blocked the main thread while executing which prevents other things from loading.
+* This reflected into our load time of 13seconds
 </aside>
 </section>

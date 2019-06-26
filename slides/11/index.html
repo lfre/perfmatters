@@ -1,25 +1,15 @@
-<section>
-  <h1 class="title"><span class="number fragment italic accent">1.</span> <span class="fragment">Get the Executive Buy-In</span></h1>
-  <ul>
-    <li class="fragment">
-      <h2 class="accent">Measure</h2>
-      <div class="fragment logos">
-        <img data-src="/assets/images/wpt.png" style="margin-left:-5rem;"/>
-        <img data-src="/assets/images/lighthouse.png" width=150/>
-        <img class="fragment" data-src="/assets/images/perfume.png" width=90/>
-      </div>
-    </li>
-    <li class="fragment">
-      <h2 class="accent">Compare to Competitors</h2>
-      <img class="logos fragment" data-src="/assets/images/crux.png" width=100/>
-    </li>
-  </ul>
+<section class="infer">
+  <h2 class="orange bold">Infer by user action</h2>
+  <div class="container">
+    <video class="infinite-load-video fragment hide-after" style="margin-top: 2%" loop muted width="80%">
+        <source src="/assets/videos/infinite-load.webm" type="video/webm" />
+        <source src="/assets/videos/infinite-load.mp4" type="video/mp4" />
+    </video>
+    <img class="fragment" data-src="/assets/images/infinite-load-code.png" width="90%" style="margin-top: 2%"/>
+  </div>
 <aside class="notes">
-* 1. Get the Executive Buy-In
-* These are the people that decide how much time and effort the teams put into something
-* First, we needed to know where we stand, so we measured
-* Without any code changes, using webpagetest or lighthouse you can get metrics of how your site performs under different speeds.
-* This is called synthetic testing, and with a small library like PerfurmeJS you can get the same metrics from real users, and store them in Google Analytics or a server of your own.
-* Once you have that data, you can compare yourself to competitors using the HTTP Archive or with the UX Dashboard Rick will be talking about tomorrow.
+* You can defer code using the page lifecycle methods
+* But more effectively is to infer by user actions, this means that if a user decides to interact with something sooner, that’s when you load code, instead of deferring by default and possibly frustrating that user.
+* On our homepage, the code that deals with loading more items is imported when the user has reached a certain distance. The common way to do this is with a scroll handler and the scroll position, but thanks to the Intersection Observer, we are able to get the middleish element on the feed and hook to that. The module itself uses a similar technique but uses the last item with a margin to decide when to fetch new items.
 </aside>
 </section>

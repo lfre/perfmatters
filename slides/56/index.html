@@ -1,24 +1,8 @@
 
 <section>
-    <h1 class="title">Customization is key <span><img width="6%" data-src="/assets/images/key.png"/></span><h1>
-    <h2 style="font-size: 2.5rem;">
-        <span class="accent">Wishlist:</span>
-        Performance options per bundle</h2>
-    <pre class="fragment">
-      <code data-noescape data-trim>
-        <span class="code-green">module</span><span class="code-white">.</span><span class="code-green">exports</span> = <span class="code-yellow">{</span>
-          performance: <span class="code-pink">{</span>
-            <span class="code-blue">assetFilter</span>: <span class="code-blue normal">function</span><span class="code-lightblue">(</span>assetFilename<span class="code-lightblue">)</span> <span class=" code-lightblue">{</span>
-              <span class="italic">return</span> <span class="code-violet">!</span>legacy.<span class="code-blue">includes</span><span class="code-yellow">(</span>assetFilename<span class="code-yellow">)</span>;
-            <span class="code-lightblue">}</span>
-          <span class="code-pink">}</span>
-        <span class="code-yellow">}</span>;
-      </code>
-  </pre>
+  <h1 class="title">What should we do if we care about performance?<h1>
+  <h2 class="fragment" style="line-height:4.5rem;">Don't stop at <span class="italic accent">tools</span> or <span class="italic accent">techniques</span> but how they fit into a <span class="bold italic accent">process</span>.</h2>
 <aside class="notes">
-- This is on my wishlist.
-- I wish web pack would allow options per entry or bundle.
-- You can use the filter option, but this means the legacy files will not be covered and it becomes the wild west until they are refactored.
-- You can argue that you can have multiple configurations, and that is true but that requires a bigger effort, and then we wonder why companies don’t invest in their performance.
+- Dont stop at tools or techniques but how they fit into a process, this might be a process you’re already have or one you need to create
 </aside>
 </section>

@@ -1,83 +1,10 @@
 
-<section class="abstract">
-  <h1 class="title">Abstract frequent optimizations</h1>
-  <div class="container">
-    <h2 class="bold italic accent gbrc fragment hide-after">getBoundingClientRect</h2>
-    <img class="fragment hide-after" data-src="/assets/images/rect.png" height="100%"/>
-    <pre class="code fragment hide-after">
-      <code data-noescape data-trim>
-        // module-a.js
-        <span class="code-blue">requestAnimationFrame</span>(() => {
-          <span class="code-blue">const</span> <span class="code-violet">{</span> right, bottom <span class="code-violet">}</span> = el.<span class="code-lightblue">getBoundingClientRect</span>();
-        });
-        // module-b.js
-        <span class="code-blue">requestAnimationFrame</span>(() => {
-          el.<span class="code-blue">classList</span>.<span class="code-violet">add</span>(<span class="code-orange">'change-size'</span>); <span class="scream">😱</span>
-        });
-      </code>
-    </pre>
-    <h2 class="io bold italic accent fragment hide-after">IntersectionObserver</h2>
-    <pre class="code io-spec fragment hide-after">
-      <code data-noescape data-trim>
-        <span class="code-blue">const</span> io = <span class="code-blue">new</span> <span class="code-orange">IntersectionObserver</span>((<span class="code-yellow">entries</span>) => {
-          entries.<span class="code-violet">forEach</span>(entry => {
-            //   <mark>entry.boundingClientRect</mark>
-            //   entry.intersectionRatio
-            //   entry.intersectionRect
-            //   entry.isIntersecting
-            //   entry.rootBounds
-            //   entry.target
-            //   entry.time
-          });
-        });
-        // observe the element
-        io.<span class="code-blue">observe</span>(el);
-      </code>
-    </pre>
-    <pre class="code gbrc-async fragment hide-after">
-      <code data-noescape data-trim>
-        <span class="code-blue">const</span> getBoundingClientRect = <span class="code-yellow">el</span> =>
-          <span class="c-turq">new</span> <span class="code-orange">Promise</span>((resolve) => {
-            <span class="code-blue">const</span> io = <span class="c-turq">new</span> <span class="code-orange">IntersectionObserver</span>((entries) <span class="code-blue">=></span> <span class="code-yellow">{</span>
-              <mark>resolve(entries.shift().boundingClientRect);</mark>
-              io.<span class="code-blue">disconnect</span><span class="code-pink">()</span><span class="code-violet">;</span>
-            <span class="code-yellow">}</span>);
-            io.<span class="code-blue">observe</span><span class="code-pink">(</span>el<span class="code-pink">)</span><span class="code-violet">;</span>
-          });
-      </code>
-    </pre>
-    <pre class="code touchstart fragment">
-        <code data-noescape data-trim>
-        <span class="code-blue">const</span> <span class="code-blue italic">touchDevice</span> <span class="code-violet">=</span> '<span class="code-orange">ontouchstart</span>' <span class="c-turq">in</span> window;
-
-        <span class="code-blue">const addListener</span> <span class="code-violet">=</span> <span class="code-yellow">(</span>target, <span class="code-white">type</span>, listener<span class="code-yellow">)</span> => <span class="code-yellow">{</span>
-          // switch click to touchstart on touch devices
-          if <span class="code-violet">(</span><span class="code-white">type</span> <span class="code-violet">===</span> <span class="code-orange">'click'</span> <span class="code-violet">&&</span> touchDevice<span class="code-violet">)</span> <span class="code-violet">{</span>
-            <mark>type = 'touchstart';</mark>
-          <span class="code-violet">}</span>
-
-          target<span class="code-violet">.</span><span class="code-blue">addEventListener</span><span class="code-violet">(</span><span class="code-white">type</span><span class="code-violet">,</span> listener<span class="code-violet">)</span>;
-        <span class="code-yellow">}</span>
-
-        </code>
-    </pre>
-  </div>
+<section>
+  <img data-src="/assets/images/cross-functional.png" width="100%"/>
 <aside class="notes">
-<p>* For example: getBoundingClientRect.</p>
-<p> It’s an amazing method that returns the coordinates, width and height, and the dimensions of an element, and it’s extremely precise.</p>
-<p> But unfortunately, it’s a synchronous method and forces a layout. This means the browser has to drop whatever is doing, and paint the screen, which can translate to visual jank.</p>
-
-* One possible solution is to use requestAnimationFrame, but if one of those frames changes the dimensions of the element, you’ll still force a layout.
-
-* So going back to the Intersection Observer, while I was doing the infinite loop technique. I realized a couple of things:
-    * The entries on the IO have a boundingClientRect,
-    and the callback executes after observing an element,
-    not only when it’s in view,
-    so all your code needs an if statement for isIntersecting.
-
-    * But this means, we can have an asynchronous getBoundingClientRect, and this will be the safest way to do it as of now, because you’re asking to be notified of the next frame.
-
-* Another optimization is to automatically switch all your click events to mouse down for improved perceived performance.
-This will give you on average ~100ms head start, which leads me to the question that came up often:
+- Last year at the end of June.
+- I watched a talk by Lauren Younger called How to manage performance like a feature,
+and this image about Cross-Functional Management looked familiar.
+- At Hearst we have the same roles, but I’ve been focusing only on Engineering and Management.
 </aside>
 </section>

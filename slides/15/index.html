@@ -1,15 +1,22 @@
-<section>
-  <h1 class="title">Before</h1>
-  <div class="filesize fragment">
-    <img data-src="/assets/images/feed-old.png" width="100%" />
-    <h4 class="bold"><span class="accent">360kb</span> Uncompressed</h4>
+<section class="wpt-videos">
+  <h1 class="title"><span class="accent">~4 seconds</span> faster FCP</h1>
+  <div class="video-container">
+    <video class="before-video fragment" loop width="350rem">
+        <source src="/assets/videos/wpt/before.mp4" type="video/mp4" />
+    </video>
+    <video class="after-video fragment hide-after" loop width="350rem">
+        <source src="/assets/videos/wpt/after.mp4" type="video/mp4" />
+    </video>
+    <video class="last-new fragment" loop width="350rem">
+        <source src="/assets/videos/wpt/new.mp4" type="video/mp4" />
+    </video>
   </div>
-<img class="fragment" data-src="/assets/images/feed-old-wpt.png" width="100%"/>
-<img class="fragment webpagetest" data-src="/assets/images/before.png" width="100%"/>
 <aside class="notes">
-* Before, we had a 360kb bundle that was used on all pages but also the homepage,
-but the feed pages aren’t as visible as the homepage.
-* On a mobile device with 3G, it took almost 2 seconds to load, but then it blocked the main thread while executing which prevents other things from loading.
-* This reflected into our load time of 13seconds
+* To put that into context, that’s 4 seconds on average to our First Contentful Paint
+* This is where we were before
+* and this is after
+* Issues like not using font-display or using an icon font vs svg became more noticeable, but these were optimizations we knew we had to do, when we decided to tackle Javascript first.
+* Still, it was weird to have that much blank space so we added a background color with a loader to change the loading perception.
+* Even with these changes, we were still noticing some tests skyrocketing, and our Time To Interactive being really slow.
 </aside>
 </section>

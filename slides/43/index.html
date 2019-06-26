@@ -1,14 +1,19 @@
 
 <section>
-  <h1 class="title">Performance Paths</h1>
+  <h1 class="title">Document your tradeoffs</h1><br/><br/>
   <ul>
-    <li class="fragment"><span class="bold italic accent">Why</span> are we doing this?</li>
-    <li class="fragment">Align best practices with goals</li>
-    <li class="fragment italic"><span class="orange">Render</span> vs <span class="accent">Runtime</span></li>
-    <li class="fragment italic"><span class="orange">Mobile</span> vs <span class="accent">Desktop</span></li>
+  <li class="fragment">Specify the reasons.</li><br/>
+  <li class="fragment italic">
+    Is it by <span class="accent">design</span>?
+  </li>
+  <li class="fragment italic">
+      Is it a
+      <span class="accent">technical</span> limitation?
+  </li>
   </ul>
 <aside class="notes">
-* We can create a path, by knowing why we’re doing something.
-* We can align best practices with goals, and separate Render vs Runtime performance, or Mobile vs Desktop.
+* Knowing the vision will let us document the tradeoffs of today, specifying if they were by design or because of a technical limitation.
+* Open source packages would benefit greatly from this to prevent the same type of issue being created that is known to be outside of the creator’s intent or scope.
+* This is usually done at the beginning when proposing a new architecture, but in reality it should occur with each feature, like merging a tradeoffs.md that gets automated like documentation pages. Documentation answers the why, but tradeoffs should answer the why not?
 </aside>
 </section>

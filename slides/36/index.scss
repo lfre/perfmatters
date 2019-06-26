@@ -1,0 +1,49 @@
+.reveal .product-design {
+  .wrapper {
+    position: relative;
+  }
+  .container {
+    height: 25rem;
+  }
+  .lifecycle {
+    width: 100%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  .right-arrow {
+    width: 4%;
+    padding: 0 1%;
+    vertical-align: text-top;
+  }
+
+  h4 {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  .we-think {
+    bottom: 5%;
+    top: auto;
+    left: 53%;
+    width: 100%;
+
+    .top-arrow {
+      width: 6%;
+      vertical-align: middle;
+    }
+  }
+
+  .where-it-should {
+    width: 100%;
+    left: 40%;
+    top: 5%;
+
+    .top-arrow {
+      width: 6%;
+      transform: rotate(180deg);
+      vertical-align: top;
+    }
+
+  }
+}

@@ -1,15 +1,20 @@
-<section class="infer">
-  <h2 class="orange bold">Infer by user action</h2>
-  <div class="container">
-    <video class="infinite-load-video fragment hide-after" style="margin-top: 2%" loop muted width="80%">
-        <source src="/assets/videos/infinite-load.webm" type="video/webm" />
-        <source src="/assets/videos/infinite-load.mp4" type="video/mp4" />
-    </video>
-    <img class="fragment" data-src="/assets/images/infinite-load-code.png" width="90%" style="margin-top: 2%"/>
-  </div>
+<section data-transition="fade" class="third-party">
+  <ul class="legend">
+     <li class="fragment">First Party: <span class="white">11 Requests</span></li>
+     <li class="fragment">Tag Manager: <span class="white">7th Request</span></li>
+     <li class="fragment bold orange">Third Party: <span class="fragment accent white">125 Requests</span></li>
+     <li class="fragment"><img data-src="/assets/images/third-party.gif" width="90%"/></li>
+  </ul>
+  <img class="waterfall hide-after" data-src="/assets/images/waterfall-explained.png"/>
 <aside class="notes">
-* You can defer code using the page lifecycle methods
-* But more effectively is to infer by user actions, this means that if a user decides to interact with something sooner, that’s when you load code, instead of deferring by default and possibly frustrating that user.
-* On our homepage, the code that deals with loading more items is imported when the user has reached a certain distance. The common way to do this is with a scroll handler and the scroll position, but thanks to the Intersection Observer, we are able to get the middleish element on the feed and hook to that. The module itself uses a similar technique but uses the last item with a margin to decide when to fetch new items.
+* On the right side, you can see the waterfall for that same test of 2seconds. I have painted the resources to differentiate
+* The resources at the top are first party, and there 11 of them
+* The tag manager is the 7th request and it loads asynchronously, which then requests our Third Party
+* with 125 requests. Besides the large amount of requests, these cannot be optimized or even prefetched because they change every time.
+* So to answer the question “why is it still slow?"
+* The answer was pretty clear
+
+- Fixing this was going to take more than having executive buy in for how spend our time.
+- There are multiple teams that don’t interact with us on a daily basis modifying this code, which is the goal of tag managers.
 </aside>
 </section>

@@ -1,11 +1,15 @@
 
-<section>
-   <br/>
-  <h2 class="bold italic">You don't have to <span class="orange">build</span> to <span class="accent">enable</span> it.</h2>
-  <video class="fragment" style="margin-top: 6rem;" data-src="/assets/videos/clues-for-enabling.mp4" loop width="35%"></video>
+<section class="split-vendors">
+<div class="container">
+    <img class="fragment visible current-fragment" data-src="/assets/images/webpack.config.png" height="100%" />
+    <h2 class="vendors bold fragment accent">81kb</h2>
+    <h2 class="jquery bold fragment orange">86kb</h2>
+</div>
 <aside class="notes">
-* But the most important thing this approach brings, is that you don’t have to build or abstract early to enable it.
-* As developers, knowing the possibilities will enable us to leave clues for ourselves and others as to how we could refactor or abstract code.
-* Trivial decisions like should this be overridden by an environment variable or not, can speed up further work
+* Webpack by default packages everything from node modules into 1 bundle, and it’s excessive,
+* but the common approach is to package up your main framework.
+* When moving from legacy code, it’s important to realize that your framework also has dependencies.
+* Our legacy app uses Backbone which depends on jquery and underscore, but we noticed that some modules were using Backbone to be consistent without really using its features, but were using a lot more of jquery methods.
+* That means that we were able to drop Backbone, underscore and more pretty easily which was 81kb, and only load jquery which by itself is bigger than all of them combined.
 </aside>
 </section>
